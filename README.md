@@ -1,44 +1,47 @@
-# Analyse des Données sur les Allergies
+# 🌿 Allergen Chip Challenge — TER Allergie (2024-2025)
 
-## Description du Projet
-Ce projet vise à analyser un jeu de données public sur les allergies. Dans un premier temps, nous avons effectué une analyse exploratoire des données afin de mieux comprendre leur structure et leurs caractéristiques principales. Par la suite, après avoir obtenu la version finale des données nettoyées et prétraitées, nous avons réalisé plusieurs analyses avancées de réduction de dimensionnalité pour mieux visualiser et interpréter les relations entre les variables.
+## 📝 À propos du projet
 
-## Analyses Réalisées
-### 1. Analyse en Composantes Principales (ACP)
-L'Analyse en Composantes Principales (ACP) est une technique statistique permettant de réduire la dimensionnalité des données tout en conservant le maximum de variance possible. Elle transforme les variables initiales en un ensemble de nouvelles variables non corrélées appelées composantes principales.
+Ce projet a été réalisé dans le cadre d’un TER (Travail d’Étude et de Recherche) en collaboration avec la Société Française d’Allergologie (SFA) et le Health Data Hub.  
+L’objectif principal est de développer des modèles d’apprentissage automatique pour prédire la présence et la sévérité des allergies à partir de données complexes issues de puces allergéniques (ISAC_V1, ISAC_V2, ALEX).  
+Les données utilisées comprennent plus de 4000 patients, avec des profils IgE détaillés et des informations cliniques.
 
-**Objectif :**
-- Réduire le nombre de dimensions tout en conservant les informations essentielles.
-- Visualiser les données dans un espace de plus faible dimension.
+## 🎯 Objectifs
 
-**Résultat :**
-Les résultats obtenus ont été décevants, car les premières composantes principales ne capturaient pas suffisamment bien la structure sous-jacente des données pour permettre une interprétation claire.
+- Classer les patients en deux groupes : allergiques et non allergiques.
+- Identifier le type d’allergie : respiratoire, alimentaire, venin, etc.
+- Prédire la sévérité de l’allergie.
+- Analyser l’importance des variables dans la classification.
 
-### 2. Uniform Manifold Approximation and Projection (UMAP)
-UMAP est une technique de réduction de dimensionnalité non linéaire qui cherche à préserver la structure locale et globale des données dans un espace de plus faible dimension. Cette méthode est souvent utilisée pour la visualisation de données complexes.
+## 🏗️ Méthodologie
 
-**Objectif :**
-- Réduire la dimensionnalité en conservant la proximité locale des points de données.
-- Identifier des groupes potentiels dans les données.
+- **Exploration et prétraitement des données** : analyse des cibles et des classes, équilibrage des données via SMOTE.
+- **Modèles testés** :
+  - Random Forest
+  - XGBoost
+  - Régression Logistique
+  - SVM
+- **Validation croisée** : K-Fold avec k=10.
+- **Évaluation des performances** : F1-score (classe 1), précision, AUC-ROC, matrices de confusion.
+- **Analyse des variables contributives** via les scores d’importance de XGBoost.
 
-**Résultat :**
-Les résultats obtenus avec UMAP n'ont pas permis de révéler de structures claires au sein du jeu de données, rendant difficile toute segmentation pertinente des données.
+## 📊 Résultats
 
-### 3. t-Distributed Stochastic Neighbor Embedding (t-SNE)
-Le t-SNE est une autre méthode de réduction de dimensionnalité qui est particulièrement adaptée à la visualisation des données en 2D ou 3D. Elle fonctionne en préservant les relations de voisinage entre les points dans un espace de dimension réduite.
+- **XGBoost** a démontré des performances supérieures sur l’ensemble des cibles, avec des AUC-ROC proches de l’optimum, un excellent F1-score sur la classe 1, et une stabilité remarquable sur les différents tests.
+- Les résultats détaillés (F1-score, précision, AUC, matrices de confusion, importance des features) sont disponibles dans les notebooks et les fichiers CSV générés.
 
-**Objectif :**
-- Visualiser des structures sous-jacentes dans des données de grande dimension.
-- Identifier des regroupements potentiels.
+## 📎 Données
 
-**Résultat :**
-Malgré plusieurs ajustements des hyperparamètres, les résultats obtenus avec t-SNE n'ont pas été concluants. Les données ne montraient pas de séparation nette entre différentes classes ou groupes, ce qui a limité la pertinence de cette approche.
+Les données utilisées proviennent du **Allergen Chip Challenge**, un projet mené entre 2021 et 2023 par la SFA et le Health Data Hub. Les données ne sont pas publiques et sont soumises à des restrictions d’utilisation.
 
-## Conclusion
-Malgré l'utilisation de plusieurs techniques avancées de réduction de dimensionnalité, les résultats obtenus ont été décevants. Aucune des méthodes testées n'a permis de dégager des tendances claires ou des clusters significatifs au sein des données. Ces résultats suggèrent que d'autres approches, telles que des techniques de modélisation plus avancées ou l'incorporation de nouvelles variables, pourraient être nécessaires pour extraire des informations utiles de ces données.
+## 🚀 À venir / Perspectives
 
-## Auteurs
-- Al Ayoubi Ibrahim 
-- Sauma Christen
+- Ajout d’analyses explicatives avancées (SHAP, LIME) pour interpréter les prédictions.
+- Intégration de données cliniques supplémentaires.
+- Optimisation des hyperparamètres et exploration d’autres modèles (deep learning).
+
+## Auteur
+
+- **AL AYOUBI Ibrahim**  
 
 
