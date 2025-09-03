@@ -6,7 +6,7 @@ Ce projet a été réalisé dans le cadre d’un TER (Travail d’Étude et de R
 L’objectif principal est de développer des modèles d’apprentissage automatique pour prédire la présence et la sévérité des allergies à partir de données complexes issues de puces allergéniques (ISAC_V1, ISAC_V2, ALEX).  
 Les données utilisées comprennent plus de 4000 patients, avec des profils IgE détaillés et des informations cliniques.
 
-##Objectifs
+## Objectifs
 
 - Classer les patients en deux groupes : allergiques et non allergiques.
 - Identifier le type d’allergie : respiratoire, alimentaire, venin, etc.
